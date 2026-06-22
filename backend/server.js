@@ -1,0 +1,24 @@
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const conectarDB = require('./database/db');
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+
+const peluqueroRoutes = require('./routers/peluqueroRoute');
+app.use('/api/peluqueros', peluqueroRoutes);
+
+conectarDB();
+
+app.get('/', (req, res) => {
+  res.json({ mensaje: 'Servidor de BarberApp funcionando' });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});

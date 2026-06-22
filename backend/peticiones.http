@@ -1,0 +1,15 @@
+### Obtener todos los peluqueros
+
+GET http://localhost:3000/api/peluqueros HTTP/1.1
+
+###
+
+### Crear un nuevo peluquero
+POST http://localhost:3000/api/peluqueros HTTP/1.1
+Content-Type: application/json
+
+{
+  "nombre": "Micaela",
+  "descripcion": "Corte y Perfilado Cejas",
+  "avatar": "https://i.pravatar.cc/300?img=33"
+}

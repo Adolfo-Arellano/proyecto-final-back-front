@@ -4,12 +4,48 @@ GET http://localhost:3000/api/peluqueros HTTP/1.1
 
 ###
 
-### Crear un nuevo peluquero
-POST http://localhost:3000/api/peluqueros HTTP/1.1
+### REGISTROS
+
+
+
+###  ya registrado Lionel
+POST http://localhost:3000/api/peluqueros
+Content-Type: application/json
+
+{
+  "nombre": "Lionel",
+  "descripcion": "Corte y Perfilado Barba",
+  "avatar": "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+}
+
+### ya registrada Micaela
+POST http://localhost:3000/api/peluqueros
 Content-Type: application/json
 
 {
   "nombre": "Micaela",
   "descripcion": "Corte y Perfilado Cejas",
-  "avatar": "https://i.pravatar.cc/300?img=33"
+  "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956"
+}
+
+### ya registrado Mariano
+POST http://localhost:3000/api/peluqueros
+Content-Type: application/json
+
+{
+  "nombre": "Mariano",
+  "descripcion": "Texturados",
+  "avatar": "https://plus.unsplash.com/premium_photo-1664536392779-049ba8fde933?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGhvbWJyZSUyMHBvcnRyYWl0fGVufDB8fDB8fHww"
+}
+
+
+
+###  nuevo barbero 
+POST http://localhost:3000/api/peluqueros
+Content-Type: application/json
+
+{
+  "nombre": "Nuevo Barbero",
+  "descripcion": "Corte clásico y moderno",
+  "avatar": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1"
 }

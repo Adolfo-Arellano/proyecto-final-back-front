@@ -3,7 +3,7 @@ const Peluquero = require('./model/peluqueros');
 
 exports.getAllPeluquerosRepository = async () => {
   try {
-    // Busca todos los peluqueros en MongoDB Atlas
+    // Busca todos los peluqueros en Mongo
     const peluqueros = await Peluquero.find().lean();;
     
     

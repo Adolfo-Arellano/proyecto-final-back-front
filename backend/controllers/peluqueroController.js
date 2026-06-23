@@ -10,12 +10,11 @@ exports.getAllPeluquerosController = async (req, res) => {
   }
 };
 
-// para el POST 
+// para el POST
 exports.createPeluqueroController = async (req, res) => {
   try {
     // Los datos del peluquero nuevo vienen en el req.body
     const nuevoPeluquero = await peluqueroService.createPeluqueroService(req.body);
-    
     
     return res.status(201).json({ 
       mensaje: 'Peluquero creado con éxito', 

@@ -4,6 +4,8 @@ const cors = require("cors");
 const conectarDB = require("./database/db");
 const peluqueroRoutes = require("./routers/peluqueroRoute");
 const serviciosRouter = require("./routers/serviciosRoute");
+const clienteRouter = require("./routers/clienteRoute");
+const turnoRouter = require("./routers/turnoRoute");
 const app = express();
 
 app.use(cors());
@@ -11,6 +13,8 @@ app.use(express.json());
 
 app.use("/api/peluqueros", peluqueroRoutes);
 app.use("/api/servicios", serviciosRouter);
+app.use("/api/clientes", clienteRouter);
+app.use("/api/turnos", turnoRouter);
 
 conectarDB();
 

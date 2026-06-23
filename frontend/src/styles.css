@@ -1,1 +1,172 @@
-/* You can add global styles to this file, and also import other style files */
+/* GLOBALES */
+:root {
+  --bg:         #111111;
+  --bg2:        #1C1C1C;
+  --bg3:        #252525;
+  --border:     #2A2A2A;
+  --gold:       #C9A84C;
+  --gold-hover: #E0BF6A;
+  --gold-glow:  rgba(201, 168, 76, 0.12);
+  --red-acc:    #8B1A1A;
+  --red-acc-light: #B22222;
+  --red-glow:   rgba(139, 26, 26, 0.15);
+  --text:       #F5F0E8;
+  --text-m:     #888880;
+  --text-d:     #444440;
+}
+
+* {
+  margin:     0;
+  padding:    0;
+  box-sizing: border-box;
+}
+
+a {
+  color:           inherit;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background:  var(--bg);
+  color:       var(--text);
+  min-height:  100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR */
+.navbar {
+  background:     rgba(17, 17, 17, 0.97);
+  border-bottom:  1px solid var(--border);
+  box-shadow:     0 2px 0 0 var(--red-acc);
+  padding:        0 2.5rem;
+  display:        flex;
+  align-items:    center;
+  justify-content: space-between;
+  height:         64px;
+  position:       sticky;
+  top:            0;
+  z-index:        100;
+  backdrop-filter: blur(8px);
+}
+
+.navbar .logo {
+  color:           var(--gold);
+  font-size:       20px;
+  font-weight:     700;
+  text-decoration: none;
+  letter-spacing:  2px;
+  text-transform:  uppercase;
+}
+
+.nav-links {
+  display:     flex;
+  gap:         15px;
+  align-items: center;
+}
+
+.nav-links a {
+  color:           var(--text-m);
+  text-decoration: none;
+  padding:         8px 16px;
+  border-radius:   6px;
+  font-size:       14px;
+  transition:      all 0.2s;
+}
+
+.nav-links a:hover {
+  color:       var(--text);
+  background:  var(--bg3);
+}
+
+.nav-links a.activo {
+  color:       var(--gold);
+  background:  var(--gold-glow);
+}
+
+.btn-reservar {
+  background:   var(--gold) !important;
+  color:        #111 !important;
+  font-weight:  700 !important;
+  border-radius: 6px;
+}
+
+.btn-reservar:hover {
+  background: var(--gold-hover) !important;
+}
+
+/* FOOTER */
+footer {
+  background:   var(--bg1);
+  border-top:   1px solid var(--border);
+  padding:      3rem 2.5rem 2rem;
+  margin-top:   auto;
+}
+
+.footer-inner {
+  max-width:  1100px;
+  margin:     0 auto;
+  display:    grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap:        2.5rem;
+}
+
+.footer-brand p {
+  font-size:   13px;
+  color:       var(--text-m);
+  line-height: 1.7;
+  margin-top:  10px;
+}
+
+.footer-col h4 {
+  font-size:      11px;
+  font-weight:    600;
+  color:          var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom:  14px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  font-size:     13px;
+  color:         var(--text-m);
+  margin-bottom: 10px;
+}
+
+.footer-bottom {
+  max-width:    1100px;
+  margin:       2rem auto 0;
+  padding-top:  1.5rem;
+  border-top:   1px solid var(--border);
+  display:      flex;
+  justify-content: center;
+  align-items:  center;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  color:     var(--text-d);
+}
+
+
+/* EXTRAS */
+.seccion-divider {
+  width:         40px;
+  height:        2px;
+  background:    var(--red-acc-light);
+  margin:        0 auto 0;
+  border-radius: 2px;
+}
+
+.contenido-principal {
+  flex: 1;
+}

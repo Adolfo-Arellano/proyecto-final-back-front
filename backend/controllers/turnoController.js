@@ -1,4 +1,4 @@
-const turnoService = require('../service/turnoService');
+const turnoService = require('../services/turnoService');
 
 const getAll = async (req, res) => {
   try {

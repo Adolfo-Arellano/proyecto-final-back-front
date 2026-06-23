@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const servicioController = require("../controllers/serviciosController");
+const servicioController = require("../controllers/servicioController");
 
 console.log("Controlador de servicios cargado correctamente:", Object.keys(servicioController));
 

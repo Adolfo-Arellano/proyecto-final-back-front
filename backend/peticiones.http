@@ -86,3 +86,6 @@ Content-Type: application/json
   "precio": 7000,
   "duracion": 60
 }
+
+### Ver todos los turnos
+GET http://localhost:3000/api/turnos HTTP/1.1

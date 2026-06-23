@@ -1,1 +1,83 @@
-<p>turnos works!</p>
+@if (!enviado) {
+  <div class="turnos-page">
+    <div class="formulario-container">
+
+      <h2>Reservar turno</h2>
+      <p class="form-subtitulo">Completá tus datos y elegí el horario que más te convenga</p>
+
+      @if (errorMsg) {
+        <p class="error">{{ errorMsg }}</p>
+      }
+
+      <div class="campo">
+        <label>Nombre *</label>
+        <input type="text" [(ngModel)]="turno.clienteNombre" placeholder="Tu nombre" />
+      </div>
+
+      <div class="campo">
+        <label>Apellido *</label>
+        <input type="text" [(ngModel)]="turno.clienteApellido" placeholder="Tu apellido" />
+      </div>
+
+      <div class="campo">
+        <label>Teléfono *</label>
+        <input type="tel" [(ngModel)]="turno.clienteTelefono" placeholder="11-xxxx-xxxx" />
+      </div>
+
+      <div class="campo">
+        <label>Peluquero *</label>
+        <select [(ngModel)]="turno.peluqueroId" (ngModelChange)="actualizarHorarios()">
+          <option value="">-- Elegí un peluquero --</option>
+          @for (p of peluqueros; track p._id) {
+            <option [value]="p._id">{{ p.nombre }} {{ p.apellido }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Servicio *</label>
+        <select [(ngModel)]="turno.servicioId">
+          <option value="">-- Elegí un servicio --</option>
+          @for (s of servicios; track s._id) {
+            <option [value]="s._id">{{ s.nombre }} — ${{ s.precio }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Fecha *</label>
+        <input type="date" [(ngModel)]="turno.fecha" (ngModelChange)="actualizarHorarios()" />
+      </div>
+
+      <div class="campo">
+        <label>Hora *</label>
+        <select [(ngModel)]="turno.hora" [disabled]="!turno.peluqueroId || !turno.fecha">
+          <option value="">
+            @if (!turno.peluqueroId || !turno.fecha) {
+              Elegí peluquero y fecha primero
+            } @else {
+              -- Elegí un horario --
+            }
+          </option>
+          @for (h of horariosDisponibles; track h) {
+            <option [value]="h">{{ h }}</option>
+          }
+        </select>
+      </div>
+
+      <p class="campos-requeridos">* Todos los campos son obligatorios</p>
+
+      <button class="btn-submit" (click)="reservar()">Confirmar reserva</button>
+
+    </div>
+  </div>
+} @else {
+  <div class="turnos-page">
+    <div class="confirmacion-container">
+      <h2>✅ ¡Turno reservado!</h2>
+      <p>Gracias <strong>{{ turno.clienteNombre }}</strong>, tu turno fue registrado con éxito.</p>
+      <p>Te esperamos el <strong>{{ turno.fecha }}</strong> a las <strong>{{ turno.hora }}</strong>.</p>
+      <button class="btn-volver" (click)="volverAlInicio()">Volver al inicio</button>
+    </div>
+  </div>
+}

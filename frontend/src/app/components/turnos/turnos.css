@@ -1,0 +1,157 @@
+/* ── Página de turnos con fondo diferenciado ── */
+.turnos-page {
+  min-height:       calc(100vh - 64px);
+  background:       linear-gradient(135deg, #1a0a0a 0%, #111111 50%, #0a0a1a 100%);
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  padding:          3rem 1rem;
+}
+
+/* ── Contenedor del formulario ── */
+.formulario-container {
+  width:          100%;
+  max-width:      520px;
+  background:     #1C1C1C;
+  border:         1px solid #2A2A2A;
+  border-top:     3px solid #8B1A1A;
+  border-radius:  14px;
+  padding:        2.5rem;
+  box-shadow:     0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(139,26,26,0.1);
+}
+
+.formulario-container h2 {
+  font-size:     22px;
+  font-weight:   600;
+  color:         #C9A84C;
+  margin-bottom: 0.25rem;
+}
+
+.form-subtitulo {
+  font-size:     13px;
+  color:         #666660;
+  margin-bottom: 1.75rem;
+}
+
+/* ── Cada campo del formulario ── */
+.campo {
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  display: block;
+  font-size: 12px;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 9px 12px;
+  background: #252525;
+  border: 1px solid #333333;
+  border-radius: 7px;
+  color: #f0ece4;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: none;
+  border-color: #c9a84c;
+}
+
+.campo select option {
+  background: #252525;
+}
+
+/* ── Botón principal ── */
+.btn-submit {
+  width: 100%;
+  padding: 11px;
+  background: #c9a84c;
+  color: #0f0f0f;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background: #e0bf6a;
+}
+
+/* ── Mensaje de error ── */
+.error {
+  background: rgba(220, 80, 80, 0.12);
+  border: 1px solid rgba(220, 80, 80, 0.3);
+  color: #e07070;
+  border-radius: 7px;
+  padding: 10px 14px;
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+/* ── Pantalla de confirmación ── */
+.confirmacion-container {
+  width:          100%;
+  max-width:      480px;
+  text-align:     center;
+  background:     #1C1C1C;
+  border:         1px solid #2A2A2A;
+  border-top:     3px solid #C9A84C;
+  border-radius:  14px;
+  padding:        3rem 2.5rem;
+  box-shadow:     0 20px 60px rgba(0,0,0,0.5);
+}
+
+.confirmacion-container h2 {
+  color: #c9a84c;
+  font-size: 22px;
+  margin-bottom: 1rem;
+}
+
+.confirmacion-container p {
+  color: #aaaaaa;
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+}
+
+.btn-volver {
+  margin-top: 1.5rem;
+  padding: 10px 24px;
+  background: transparent;
+  border: 1px solid #c9a84c;
+  color: #c9a84c;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.btn-volver:hover {
+  background: #c9a84c;
+  color: #0f0f0f;
+}
+
+.campos-requeridos {
+  font-size: 12px;
+  color: #666;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline:    none;
+  border-color: #C9A84C;
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+}

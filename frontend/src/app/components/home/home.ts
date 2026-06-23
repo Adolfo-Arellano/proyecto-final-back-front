@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { PeluqueroService, Peluquero } from '../../services/peluquero';
 import { Servicio, ServicioItem } from '../../services/servicio';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -24,7 +25,6 @@ export class Home implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // carga de barberos al inicio
     this.peluqueroService.getPeluqueros().subscribe({
       next: (data) => {
         this.peluqueros = data;
@@ -37,7 +37,6 @@ export class Home implements OnInit {
       }
     });
 
-// carga de servicios
     this.servicioService.getServicios().subscribe({
       next: (data) => {
         this.servicios = data;

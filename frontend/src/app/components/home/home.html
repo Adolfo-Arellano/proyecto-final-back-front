@@ -1,91 +1,86 @@
-<header class="hero-banner d-flex align-items-center text-center text-white">
-  <div class="container">
-    <h1 class="display-3 fw-bold text-shadow">BARBER APP</h1>
-    <p class="lead mb-4 text-shadow">Ahora podes reservar turnos de la manera mas rápida!</p>
-    
-    <!-- apunta a staff -->
-    <a href="#staff" class="btn btn-light btn-lg px-4 py-3 fw-bold rounded-pill hover-scale shadow">
-      ✂️ Nuestro Staff
-    </a>
-      <a href="#servicios" class="btn btn-light btn-lg px-4 py-3 fw-bold rounded-pill hover-scale shadow">
-        📋 Nuestros Servicios
-      </a>
+<!-- HERO -->
+<header class="hero-banner">
+  <div class="hero-content">
+    <div class="hero-tag">Buenos Aires · Est. 2024</div>
+    <h1>Tu mejor <span>look</span> te espera</h1>
+    <p>Reservá tu turno con los mejores barberos. Estilo, precisión y confianza en cada corte.</p>
+    <div class="hero-btns">
+      <a routerLink="/turnos" class="btn-gold">Reservar turno</a>
+      <a href="#servicios" class="btn-outline-gold">Ver servicios</a>
+    </div>
   </div>
 </header>
 
-
-<div id="staff" class="container my-5 py-4">
-  <div class="text-center mb-5">
-    <h2 class="fw-bold text-dark">Nuestros Barberos</h2>
-    <p class="text-muted">Elegí al profesional que mejor se adapte a tu estilo</p>
-  </div>
-  
-
-  <div *ngIf="cargando" class="text-center my-5">
-    <div class="spinner-border text-dark" role="status">
-      <span class="visually-hidden">Cargando...</span>
-    </div>
-    <p class="mt-2 text-muted">Buscando barberos disponibles...</p>
-  </div>
-
- 
-
-
-
-
-  <div *ngIf="!cargando && !errorConexion && peluqueros.length > 0" class="row g-4 justify-content-center">
-    
-    <div class="col-12 col-md-6 col-lg-4" *ngFor="let p of peluqueros">
-      <div class="card h-100 shadow-sm border-0 hover-scale">
-   
-
-        <img 
-          [src]="p.avatar || 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=400'" 
-          class="card-img-top imagen-barbero" 
-          [alt]="p.nombre"
-          onerror="this.src='https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=400'"
-        >
-        <div class="card-body d-flex flex-column text-center">
-          <h5 class="card-title fw-bold text-dark mb-2">{{ p.nombre }}</h5>
-          <p class="card-text text-muted mb-0">{{ p.descripcion }}</p>
-        </div>
-      </div>
+<!-- BARBEROS -->
+<section id="staff">
+  <div class="seccion">
+    <div class="seccion-header">
+      <div class="seccion-tag">Nuestro equipo</div>
+      <h2>Los mejores barberos</h2>
+      <div class="seccion-divider"></div>
+      <p>Profesionales con años de experiencia en cada corte</p>
     </div>
 
+    @if (cargando) {
+      <p class="cargando">Cargando barberos...</p>
+    }
 
-    <!-- SERVICIOS -->
-<div id="servicios" class="py-5 bg-dark text-white rounded-4 my-5 mx-2 mx-md-4 shadow-lg">
-  <div class="container py-3">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold text-warning">Servicios Disponibles</h2>
-    </div>
+    @if (!cargando && peluqueros.length === 0) {
+      <p class="sin-datos">No hay barberos registrados.</p>
+    }
 
-    <div *ngIf="cargandoServicios" class="text-center my-5">
-      <div class="spinner-border text-warning" role="status">
-        <span class="visually-hidden">Cargando servicios...</span>
-      </div>
-    </div>
-
-    <div *ngIf="!cargandoServicios && servicios.length === 0" class="alert alert-dark text-center border-secondary text-muted mx-auto" style="max-width: 500px;" role="alert">
-      No hay servicios registrados actualmente.
-    </div>
-
-    <div *ngIf="!cargandoServicios && servicios.length > 0" class="row g-4 justify-content-center">
-      <div class="col-12 col-md-6 col-lg-4" *ngFor="let s of servicios">
-        <div class="card h-100 border-0 text-white p-4 rounded-4 shadow-sm card-servicio" style="background-color: #1a1c1e !important;">
-          <div class="card-body d-flex flex-column p-0">
-            <h4 class="card-title fw-bold text-warning mb-2">{{ s.nombre }}</h4>
-            <p class="card-text text-secondary flex-grow-1 mb-4" style="color: #b0b5bc !important; font-size: 0.95rem;">
-              {{ s.descripcion }}
-            </p>
-            <div class="d-flex justify-content-between align-items-center mt-auto pt-3 border-top border-secondary">
-              <span class="fs-3 fw-bold text-white">${{ s.precio }}</span>
-              <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-semibold">
-                ⏱️ {{ s.duracion }} min
-              </span>
+    @if (!cargando && peluqueros.length > 0) {
+      <div class="barberos-grid">
+        @for (p of peluqueros; track p._id) {
+          <div class="barbero-card">
+            <img
+              [src]="p.avatar || 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=400'"
+              class="barbero-img"
+              [alt]="p.nombre"
+            />
+            <div class="barbero-info">
+              <h3>{{ p.nombre }}</h3>
+              <p>{{ p.descripcion }}</p>
+              <span class="barbero-esp">{{ p.descripcion }}</span>
             </div>
           </div>
-        </div>
+        }
       </div>
-    </div>
+    }
   </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="seccion-alt">
+  <div class="seccion-alt-inner">
+    <div class="seccion-header">
+      <div class="seccion-tag">Lo que ofrecemos</div>
+      <h2>Servicios disponibles</h2>
+      <div class="seccion-divider"></div>
+      <p>Elegí el servicio que mejor se adapte a lo que buscás</p>
+    </div>
+
+    @if (cargandoServicios) {
+      <p class="cargando">Cargando servicios...</p>
+    }
+
+    @if (!cargandoServicios && servicios.length === 0) {
+      <p class="sin-datos">No hay servicios registrados.</p>
+    }
+
+    @if (!cargandoServicios && servicios.length > 0) {
+      <div class="servicios-grid">
+        @for (s of servicios; track s._id) {
+          <div class="servicio-card">
+            <div class="servicio-nombre">{{ s.nombre }}</div>
+            <div class="servicio-desc">{{ s.descripcion }}</div>
+            <div class="servicio-footer">
+              <span class="servicio-precio">${{ s.precio }}</span>
+              <span class="servicio-dur">⏱ {{ s.duracion }} min</span>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

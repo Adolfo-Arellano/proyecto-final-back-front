@@ -1,4 +1,4 @@
-const clienteService = require('../service/clienteService');
+const clienteService = require('../services/clienteService');
 
 const getAll = async (req, res) => {
   try {

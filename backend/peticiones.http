@@ -1,0 +1,124 @@
+### Obtener todos los peluqueros
+
+GET http://localhost:3000/api/peluqueros HTTP/1.1
+
+
+### REGISTROS
+
+
+###  ya registrado Lionel
+POST http://localhost:3000/api/peluqueros
+Content-Type: application/json
+
+{
+  "nombre": "Lionel",
+  "descripcion": "Corte y Perfilado Barba",
+  "avatar": "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+}
+
+### ya registrada Micaela
+POST http://localhost:3000/api/peluqueros
+Content-Type: application/json
+
+{
+  "nombre": "Micaela",
+  "descripcion": "Corte y Perfilado Cejas",
+  "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956"
+}
+
+### ya registrado Mariano
+POST http://localhost:3000/api/peluqueros
+Content-Type: application/json
+
+{
+  "nombre": "Mariano",
+  "descripcion": "Texturados",
+  "avatar": "https://plus.unsplash.com/premium_photo-1664536392779-049ba8fde933?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGhvbWJyZSUyMHBvcnRyYWl0fGVufDB8fDB8fHww"
+}
+
+
+
+###  nuevo barbero 
+POST http://localhost:3000/api/peluqueros
+Content-Type: application/json
+
+{
+  "nombre": "Nuevo Barbero",
+  "descripcion": "Corte clásico y moderno",
+  "avatar": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1"
+}
+
+### ###______________________________________________________________________________### ###
+
+###  SERVICIOS ###  
+
+GET http://localhost:3000/api/servicios HTTP/1.1
+
+###  Corte de Cabello Clásico
+POST http://localhost:3000/api/servicios
+Content-Type: application/json
+
+{
+  "nombre": "Corte de Cabello",
+  "descripcion": "Corte clásico o moderno según preferencia del cliente.",
+  "precio": 3500,
+  "duracion": 30
+}
+
+###  Corte + Barba
+POST http://localhost:3000/api/servicios
+Content-Type: application/json
+
+{
+  "nombre": "Corte + Barba",
+  "descripcion": "Corte de cabello  + arreglo y perfilado de barba",
+  "precio": 5500,
+  "duracion": 50
+}
+
+###  Tratamiento capilar
+POST http://localhost:3000/api/servicios
+Content-Type: application/json
+
+{
+  "nombre": "Tratamiento capilar",
+  "descripcion": "Hidratación profunda y cuidado del cuero cabelludo",
+  "precio": 7000,
+  "duracion": 60
+}
+
+###  TURNOS  ###
+
+### Obtener todos los turnos
+GET http://localhost:3000/api/turnos HTTP/1.1
+
+### Obtener horarios ocupados de un peluquero en una fecha
+### (reemplazar el peluqueroId y la fecha)
+GET http://localhost:3000/api/turnos/ocupados?peluqueroId=REEMPLAZAR_ID&fecha=2024-06-15 HTTP/1.1
+
+### Crear un nuevo turno
+### (reemplazar los IDs de peluqueroId y servicioId)
+POST http://localhost:3000/api/turnos
+Content-Type: application/json
+
+{
+  "clienteNombre": "Juan",
+  "clienteApellido": "Pérez",
+  "clienteTelefono": "11-1234-5678",
+  "peluqueroId": "REEMPLAZAR_ID_PELUQUERO",
+  "servicioId": "REEMPLAZAR_ID_SERVICIO",
+  "fecha": "2024-06-15",
+  "hora": "10:00",
+  "estado": "pendiente"
+}
+
+### Actualizar estado de un turno
+PUT http://localhost:3000/api/turnos/REEMPLAZAR_ID
+Content-Type: application/json
+
+{
+  "estado": "confirmado"
+}
+
+### Eliminar un turno
+DELETE http://localhost:3000/api/turnos/REEMPLAZAR_ID HTTP/1.1

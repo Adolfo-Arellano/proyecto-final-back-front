@@ -1,0 +1,86 @@
+<!-- HERO -->
+<header class="hero-banner">
+  <div class="hero-content">
+    <div class="hero-tag">Buenos Aires · Est. 2024</div>
+    <h1>Tu mejor <span>look</span> te espera</h1>
+    <p>Reservá tu turno con los mejores barberos. Estilo, precisión y confianza en cada corte.</p>
+    <div class="hero-btns">
+      <a routerLink="/turnos" class="btn-gold">Reservar turno</a>
+      <a href="#servicios" class="btn-outline-gold">Ver servicios</a>
+    </div>
+  </div>
+</header>
+
+<!-- BARBEROS -->
+<section id="staff">
+  <div class="seccion">
+    <div class="seccion-header">
+      <div class="seccion-tag">Nuestro equipo</div>
+      <h2>Los mejores barberos</h2>
+      <div class="seccion-divider"></div>
+      <p>Profesionales con años de experiencia en cada corte</p>
+    </div>
+
+    @if (cargando) {
+      <p class="cargando">Cargando barberos...</p>
+    }
+
+    @if (!cargando && peluqueros.length === 0) {
+      <p class="sin-datos">No hay barberos registrados.</p>
+    }
+
+    @if (!cargando && peluqueros.length > 0) {
+      <div class="barberos-grid">
+        @for (p of peluqueros; track p._id) {
+          <div class="barbero-card">
+            <img
+              [src]="p.avatar || 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=400'"
+              class="barbero-img"
+              [alt]="p.nombre"
+            />
+            <div class="barbero-info">
+              <h3>{{ p.nombre }}</h3>
+              <p>{{ p.descripcion }}</p>
+              <span class="barbero-esp">{{ p.descripcion }}</span>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="seccion-alt">
+  <div class="seccion-alt-inner">
+    <div class="seccion-header">
+      <div class="seccion-tag">Lo que ofrecemos</div>
+      <h2>Servicios disponibles</h2>
+      <div class="seccion-divider"></div>
+      <p>Elegí el servicio que mejor se adapte a lo que buscás</p>
+    </div>
+
+    @if (cargandoServicios) {
+      <p class="cargando">Cargando servicios...</p>
+    }
+
+    @if (!cargandoServicios && servicios.length === 0) {
+      <p class="sin-datos">No hay servicios registrados.</p>
+    }
+
+    @if (!cargandoServicios && servicios.length > 0) {
+      <div class="servicios-grid">
+        @for (s of servicios; track s._id) {
+          <div class="servicio-card">
+            <div class="servicio-nombre">{{ s.nombre }}</div>
+            <div class="servicio-desc">{{ s.descripcion }}</div>
+            <div class="servicio-footer">
+              <span class="servicio-precio">${{ s.precio }}</span>
+              <span class="servicio-dur">⏱ {{ s.duracion }} min</span>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

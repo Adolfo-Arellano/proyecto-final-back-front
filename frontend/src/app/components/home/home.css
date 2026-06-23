@@ -1,0 +1,257 @@
+/* ── Hero Banner ── */
+.hero-banner {
+  height:              90vh;
+  min-height:          500px;
+  background-image:   linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1174&auto=format&fit=crop');
+  background-size:     cover;
+  background-position: center;
+  display:             flex;
+  align-items:         center;
+  justify-content:     center;
+  text-align:          center;
+  border-bottom:       2px solid var(--gold);
+}
+
+.hero-content {
+  max-width: 680px;
+  padding:   0 2rem;
+}
+
+.hero-tag {
+  display:         inline-block;
+  background:      var(--gold-glow);
+  border:          1px solid rgba(201,168,76,0.3);
+  color:           var(--gold);
+  font-size:       11px;
+  letter-spacing:  2px;
+  text-transform:  uppercase;
+  padding:         6px 18px;
+  border-radius:   20px;
+  margin-bottom:   1.5rem;
+}
+
+.hero-content h1 {
+  font-size:      58px;
+  font-weight:    800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height:    1.1;
+  margin-bottom:  1rem;
+  color:          var(--text);
+}
+
+.hero-content h1 span {
+  color: var(--gold);
+}
+
+.hero-content p {
+  color:         var(--text-m);
+  font-size:     16px;
+  margin-bottom: 2rem;
+  line-height:   1.6;
+}
+
+.hero-btns {
+  display:         flex;
+  gap:             12px;
+  justify-content: center;
+}
+
+.btn-gold {
+  background:    var(--gold);
+  color:         #111;
+  font-weight:   700;
+  padding:       12px 28px;
+  border-radius: 7px;
+  border:        none;
+  font-size:     15px;
+  cursor:        pointer;
+  text-decoration: none;
+  transition:    background 0.2s;
+}
+
+.btn-gold:hover { background: var(--gold-hover); }
+
+.btn-outline-gold {
+  background:    transparent;
+  color:         var(--text);
+  font-weight:   500;
+  padding:       12px 28px;
+  border-radius: 7px;
+  border:        1px solid rgba(255,255,255,0.2);
+  font-size:     15px;
+  cursor:        pointer;
+  text-decoration: none;
+  transition:    all 0.2s;
+}
+
+.btn-outline-gold:hover {
+  border-color: var(--gold);
+  color:        var(--gold);
+}
+
+/* ── Secciones ── */
+.seccion {
+  padding:   5rem 2.5rem;
+  max-width: 1100px;
+  margin:    0 auto;
+}
+
+.seccion-alt {
+  background: var(--bg2);
+  padding:    5rem 2.5rem;
+}
+
+.seccion-alt-inner {
+  max-width: 1100px;
+  margin:    0 auto;
+}
+
+.seccion-header {
+  text-align:    center;
+  margin-bottom: 3rem;
+}
+
+.seccion-tag {
+  display:        inline-block;
+  font-size:      11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color:          var(--gold);
+  margin-bottom:  10px;
+}
+
+.seccion-header h2 {
+  font-size:     30px;
+  font-weight:   600;
+}
+
+.seccion-header p {
+  color:     var(--text-m);
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+/* ── Cards Barberos ── */
+.barberos-grid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   20px;
+}
+
+.barbero-card {
+  background:    var(--bg3);
+  border:        1px solid var(--border);
+  border-radius: 12px;
+  overflow:      hidden;
+  transition:    all 0.3s;
+}
+
+.barbero-card:hover {
+  border-color: var(--gold);
+  transform:    translateY(-4px);
+}
+
+.barbero-img {
+  width:      100%;
+  height:     240px;
+  object-fit: cover;
+  display:    block;
+}
+
+.barbero-info {
+  padding: 1.25rem;
+}
+
+.barbero-info h3 {
+  font-size:     17px;
+  font-weight:   600;
+  margin-bottom: 4px;
+  color:         var(--text);
+}
+
+.barbero-info p {
+  font-size: 13px;
+  color:     var(--text-m);
+}
+
+.barbero-esp {
+  display:       inline-block;
+  margin-top:    10px;
+  font-size:     11px;
+  background:    var(--gold-glow);
+  color:         var(--gold);
+  border:        1px solid rgba(201,168,76,0.25);
+  padding:       3px 10px;
+  border-radius: 20px;
+}
+
+/* ── Cards Servicios ── */
+.servicios-grid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   20px;
+}
+
+.servicio-card {
+  background:    var(--bg3);
+  border:        1px solid var(--border);
+  border-radius: 12px;
+  padding:       1.5rem;
+  transition:    border-color 0.3s;
+}
+
+.servicio-card:hover { border-color: var(--gold); }
+
+.servicio-nombre {
+  font-size:     17px;
+  font-weight:   600;
+  color:         var(--gold);
+  margin-bottom: 6px;
+}
+
+.servicio-desc {
+  font-size:     13px;
+  color:         var(--text-m);
+  line-height:   1.5;
+  margin-bottom: 1.25rem;
+}
+
+.servicio-footer {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding-top:     1rem;
+  border-top:      1px solid var(--border);
+}
+
+.servicio-precio {
+  font-size:   22px;
+  font-weight: 700;
+  color:       var(--text);
+}
+
+.servicio-dur {
+  font-size:     12px;
+  color:         var(--text-m);
+  background:    var(--bg2);
+  border:        1px solid var(--border);
+  padding:       4px 10px;
+  border-radius: 20px;
+}
+
+/* ── Loading / Error ── */
+.cargando {
+  text-align: center;
+  color:      var(--text-m);
+  padding:    3rem;
+  font-size:  15px;
+}
+
+.sin-datos {
+  text-align: center;
+  color:      var(--text-m);
+  padding:    2rem;
+  font-size:  14px;
+}

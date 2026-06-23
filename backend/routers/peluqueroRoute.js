@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const peluqueroController = require('../controllers/peluqueroController');
+const servicioController = require('../controllers/servicioController');
 
-router.get('/', peluqueroController.getAllPeluquerosController);
+router.get('/', servicioController.getAllServiciosController);
 
 // PARA EL POST:
-router.post('/', peluqueroController.createPeluqueroController);
+router.post('/', servicioController.createServicioController);
 
 module.exports = router;
-

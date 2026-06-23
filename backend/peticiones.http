@@ -87,5 +87,38 @@ Content-Type: application/json
   "duracion": 60
 }
 
-### Ver todos los turnos
+###  TURNOS  ###
+
+### Obtener todos los turnos
 GET http://localhost:3000/api/turnos HTTP/1.1
+
+### Obtener horarios ocupados de un peluquero en una fecha
+### (reemplazar el peluqueroId y la fecha)
+GET http://localhost:3000/api/turnos/ocupados?peluqueroId=REEMPLAZAR_ID&fecha=2024-06-15 HTTP/1.1
+
+### Crear un nuevo turno
+### (reemplazar los IDs de peluqueroId y servicioId)
+POST http://localhost:3000/api/turnos
+Content-Type: application/json
+
+{
+  "clienteNombre": "Juan",
+  "clienteApellido": "Pérez",
+  "clienteTelefono": "11-1234-5678",
+  "peluqueroId": "REEMPLAZAR_ID_PELUQUERO",
+  "servicioId": "REEMPLAZAR_ID_SERVICIO",
+  "fecha": "2024-06-15",
+  "hora": "10:00",
+  "estado": "pendiente"
+}
+
+### Actualizar estado de un turno
+PUT http://localhost:3000/api/turnos/REEMPLAZAR_ID
+Content-Type: application/json
+
+{
+  "estado": "confirmado"
+}
+
+### Eliminar un turno
+DELETE http://localhost:3000/api/turnos/REEMPLAZAR_ID HTTP/1.1

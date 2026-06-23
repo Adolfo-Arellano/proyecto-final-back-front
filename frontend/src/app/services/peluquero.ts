@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 export interface Peluquero {
   _id?: string;
   nombre: string;
+  apellido?:   string;
   descripcion: string;
   avatar: string;
 }

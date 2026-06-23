@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Turno, TurnoService } from '../../services/turno';
-import { Servicio } from '../../services/servicio';
+import { ServicioItem } from '../../services/servicio';
 import { Peluquero } from '../../services/peluquero';
 
 @Component({
@@ -28,7 +28,7 @@ export class Turnos implements OnInit {
   errorMsg = '';
 
   peluqueros: Peluquero[] = [];
-  servicios:  Servicio[]  = [];
+  servicios:  ServicioItem[]  = [];
 
   todosLosHorarios: string[] = [
     '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
@@ -61,7 +61,7 @@ export class Turnos implements OnInit {
   cargarServicios(): void {
     fetch('http://localhost:3000/api/servicios')
       .then(r => r.json())
-      .then((data: Servicio[])  => this.servicios  = data)
+      .then((data: ServicioItem[])  => this.servicios  = data)
       .catch(() => this.servicios = []);
   }
 

@@ -56,12 +56,20 @@ body {
 }
 
 .navbar .logo {
+  display:     flex;
+  align-items: center;
   color:           var(--gold);
   font-size:       20px;
   font-weight:     700;
   text-decoration: none;
   letter-spacing:  2px;
   text-transform:  uppercase;
+}
+
+.navbar .logo img {
+  height: 55px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
